@@ -38,6 +38,7 @@ use Belt\Soshare\Twitter;
 use Belt\Soshare\Facebook;
 use Belt\Soshare\LinkedIn;
 use Belt\Soshare\Pinterest;
+use Belt\Soshare\StumbleUpon;
 
 $soshare = new Soshare();
 $soshare->addNetwork(new Reddit());
