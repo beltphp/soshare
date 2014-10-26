@@ -6,7 +6,7 @@
 [![Coverage Status](http://img.shields.io/scrutinizer/coverage/g/beltphp/soshare.svg?style=flat-square)](https://scrutinizer-ci.com/g/beltphp/soshare/code-structure)
 [![Quality Score](http://img.shields.io/scrutinizer/g/beltphp/soshare.svg?style=flat-square)](https://scrutinizer-ci.com/g/beltphp/soshare/)
 
-> URL Shares
+> Shared URLs
 
 Belt.`Soshare` is an utility library that allows you to easily check the number
 of shares an URL has for a given social network (or all social networks).
@@ -16,10 +16,8 @@ Supported networks:
  - Twitter
  - Facebook
  - LinkedIn
- - Google+
  - reddit
  - Pinterest
- - StumbleUpon
 
 ## Installation
 
@@ -30,6 +28,28 @@ $ composer require belt/soshare
 ```
 
 ## Usage
+
+Usage is really simple (as usual).
+
+```php
+use Belt\Soshare;
+use Belt\Soshare\Reddit;
+use Belt\Soshare\Twitter;
+use Belt\Soshare\Facebook;
+use Belt\Soshare\LinkedIn;
+use Belt\Soshare\Pinterest;
+
+$soshare = new Soshare();
+$soshare->addNetwork(new Reddit());
+$soshare->addNetwork(new Twitter());
+$soshare->addNetwork(new Facebook());
+$soshare->addNetwork(new LinkedIn());
+$soshare->addNetwork(new Pinterest());
+
+$soshare->getShares('http://apple.com');
+$soshare->getShares('http://apple.com', ['twitter']); // Only get shares on Twitter
+$soshare->getShares('http://apple.com', ['facebook', 'reddit']); // Only get shares on Facebook and Reddit
+```
 
 ## Contributing
 
