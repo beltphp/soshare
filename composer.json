@@ -1,0 +1,36 @@
+{
+    "name": "belt/soshare",
+    "description": "URL shares",
+    "keywords": [ "url", "social", "sharing", "twitter", "facebook", "linkedin" ],
+    "homepage": "https://github.com/beltphp/soshare",
+    "license": "BSD-2-Clause",
+    "authors": [
+        {
+            "name": "Ramon Kleiss",
+            "email": "ramonkleiss@gmail.com",
+            "homepage": "http://ramonkleiss.nl",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "4.*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Belt\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Belt\\Test\\": "tests"
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0-dev"
+        }
+    }
+}
