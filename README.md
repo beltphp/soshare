@@ -17,6 +17,7 @@ Supported networks:
  - LinkedIn
  - reddit
  - Pinterest
+ - StumbleUpon
 
 ## Installation
 
@@ -44,6 +45,7 @@ $soshare->addNetwork(new Twitter());
 $soshare->addNetwork(new Facebook());
 $soshare->addNetwork(new LinkedIn());
 $soshare->addNetwork(new Pinterest());
+$soshare->addNetwork(new StumbleUpon());
 
 $soshare->getShares('http://apple.com');
 $soshare->getShares('http://apple.com', ['twitter']); // Only get shares on Twitter
