@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <link href='https://fonts.googleapis.com/css?family=Chivo:900' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <title>Soshare by beltphp</title>
+  </head>
+
+  <body>
+    <div id="container">
+      <div class="inner">
+
+        <header>
+          <h1>Soshare</h1>
+          <h2>Shared URLs</h2>
+        </header>
+
+        <section id="downloads" class="clearfix">
+          <a href="https://github.com/beltphp/soshare/zipball/master" id="download-zip" class="button"><span>Download .zip</span></a>
+          <a href="https://github.com/beltphp/soshare/tarball/master" id="download-tar-gz" class="button"><span>Download .tar.gz</span></a>
+          <a href="https://github.com/beltphp/soshare" id="view-on-github" class="button"><span>View on GitHub</span></a>
+        </section>
+
+        <hr>
+
+        <section id="main_content">
+          <h1>
+<a name="beltsoshare" class="anchor" href="#beltsoshare"><span class="octicon octicon-link"></span></a>Belt.<code>Soshare</code>
+</h1>
+
+<blockquote>
+<p>Shared URLs</p>
+</blockquote>
+
+<p>Belt.<code>Soshare</code> is an utility library that allows you to easily check the number
+of shares an URL has for a given social network (or all social networks).</p>
+
+<p>Supported networks:</p>
+
+<ul>
+<li>Twitter</li>
+<li>Facebook</li>
+<li>LinkedIn</li>
+<li>reddit</li>
+<li>Pinterest</li>
+<li>StumbleUpon</li>
+</ul>
+
+<h2>
+<a name="installation" class="anchor" href="#installation"><span class="octicon octicon-link"></span></a>Installation</h2>
+
+<p>Via Composer.</p>
+
+<div class="highlight highlight-shell"><pre><span class="nv">$ </span>composer require belt/soshare
+</pre></div>
+
+<h2>
+<a name="usage" class="anchor" href="#usage"><span class="octicon octicon-link"></span></a>Usage</h2>
+
+<p>Usage is really simple (as usual).</p>
+
+<div class="highlight highlight-php"><pre><span class="k">use</span> <span class="nx">Belt\Soshare</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Belt\Soshare\Reddit</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Belt\Soshare\Twitter</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Belt\Soshare\Facebook</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Belt\Soshare\LinkedIn</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Belt\Soshare\Pinterest</span><span class="p">;</span>
+
+<span class="nv">$soshare</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Soshare</span><span class="p">();</span>
+<span class="nv">$soshare</span><span class="o">-&gt;</span><span class="na">addNetwork</span><span class="p">(</span><span class="k">new</span> <span class="nx">Reddit</span><span class="p">());</span>
+<span class="nv">$soshare</span><span class="o">-&gt;</span><span class="na">addNetwork</span><span class="p">(</span><span class="k">new</span> <span class="nx">Twitter</span><span class="p">());</span>
+<span class="nv">$soshare</span><span class="o">-&gt;</span><span class="na">addNetwork</span><span class="p">(</span><span class="k">new</span> <span class="nx">Facebook</span><span class="p">());</span>
+<span class="nv">$soshare</span><span class="o">-&gt;</span><span class="na">addNetwork</span><span class="p">(</span><span class="k">new</span> <span class="nx">LinkedIn</span><span class="p">());</span>
+<span class="nv">$soshare</span><span class="o">-&gt;</span><span class="na">addNetwork</span><span class="p">(</span><span class="k">new</span> <span class="nx">Pinterest</span><span class="p">());</span>
+<span class="nv">$soshare</span><span class="o">-&gt;</span><span class="na">addNetwork</span><span class="p">(</span><span class="k">new</span> <span class="nx">StumbleUpon</span><span class="p">());</span>
+
+<span class="nv">$soshare</span><span class="o">-&gt;</span><span class="na">getShares</span><span class="p">(</span><span class="s1">'http://apple.com'</span><span class="p">);</span>
+<span class="nv">$soshare</span><span class="o">-&gt;</span><span class="na">getShares</span><span class="p">(</span><span class="s1">'http://apple.com'</span><span class="p">,</span> <span class="p">[</span><span class="s1">'twitter'</span><span class="p">]);</span> <span class="c1">// Only get shares on Twitter</span>
+<span class="nv">$soshare</span><span class="o">-&gt;</span><span class="na">getShares</span><span class="p">(</span><span class="s1">'http://apple.com'</span><span class="p">,</span> <span class="p">[</span><span class="s1">'facebook'</span><span class="p">,</span> <span class="s1">'reddit'</span><span class="p">]);</span> <span class="c1">// Only get shares on Facebook and Reddit</span>
+
+<span class="nv">$soshare</span><span class="o">-&gt;</span><span class="na">getSharesByNetwork</span><span class="p">(</span><span class="s1">'http://apple.com'</span><span class="p">);</span> <span class="c1">// Get the shares seperated by network</span>
+<span class="c1">// =&gt; [ 'twitter' =&gt; 32, 'facebook' =&gt; 1337, ... ]</span>
+</pre></div>
+
+<h2>
+<a name="contributing" class="anchor" href="#contributing"><span class="octicon octicon-link"></span></a>Contributing</h2>
+
+<p>Please see <a href="https://github.com/beltphp/soshare/blob/master/CONTRIBUTING.md">CONTRIBUTING</a>.</p>
+
+<h2>
+<a name="credits" class="anchor" href="#credits"><span class="octicon octicon-link"></span></a>Credits</h2>
+
+<p>This library is based on <a href="https://github.com/Timrael/social_shares">social-shares</a>
+for Ruby. If you're building something in Ruby and you need functionality like
+this, I recommend you check this library out!</p>
+
+<h2>
+<a name="license" class="anchor" href="#license"><span class="octicon octicon-link"></span></a>License</h2>
+
+<p>Please see <a href="https://github.com/beltphp/soshare/blob/master/LICENSE">LICENSE</a>.</p>
+        </section>
+
+        <footer>
+          Soshare is maintained by <a href="https://github.com/beltphp">beltphp</a><br>
+          This page was generated by <a href="http://pages.github.com">GitHub Pages</a>. Tactile theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.
+        </footer>
+
+        
+      </div>
+    </div>
+  </body>
+</html>
