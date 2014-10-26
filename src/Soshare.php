@@ -34,6 +34,28 @@ class Soshare
     }
 
     /**
+     * Get shares seperated by network.
+     *
+     * @param string The URL to get the number of shares for.
+     * @param array  (optional) The name (or an array of names) for the
+     *               network(s) to check.
+     *
+     * @return array
+     */
+    public function getSharesByNetwork($url, array $networks = array())
+    {
+        $networks = count($networks) ? $networks : $this->getNetworks();
+
+        return _::create($networks)->map(function ($n) {
+            return $this->getNetwork($n);
+        })->inject(array(), function ($r, $n) use ($url) {
+            $r[$n->getName()] = $n->getShares($url);
+
+            return $r;
+        });
+    }
+
+    /**
      * Register a new social network.
      *
      * @param NetworkInterface

@@ -98,6 +98,33 @@ class SoshareTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($expected, $this->soshare->getShares('http://apple.com', $networks));
     }
 
+    public function testWithShareByNetwork()
+    {
+        $this->networks[0]
+            ->expects($this->any())
+            ->method('getShares')
+            ->with('http://apple.com')
+            ->will($this->returnValue(13));
+
+        $this->networks[1]
+            ->expects($this->any())
+            ->method('getShares')
+            ->with('http://apple.com')
+            ->will($this->returnValue(42));
+
+        $this->networks[2]
+            ->expects($this->any())
+            ->method('getShares')
+            ->with('http://apple.com')
+            ->will($this->returnValue(1337));
+
+        $this->assertEquals([
+            'foo' => 13,
+            'bar' => 42,
+            'baz' => 1337,
+        ], $this->soshare->getSharesByNetwork('http://apple.com'));
+    }
+
     public function networkProvider()
     {
         return [

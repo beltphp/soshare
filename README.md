@@ -50,6 +50,9 @@ $soshare->addNetwork(new StumbleUpon());
 $soshare->getShares('http://apple.com');
 $soshare->getShares('http://apple.com', ['twitter']); // Only get shares on Twitter
 $soshare->getShares('http://apple.com', ['facebook', 'reddit']); // Only get shares on Facebook and Reddit
+
+$soshare->getSharesByNetwork('http://apple.com'); // Get the shares seperated by network
+// => [ 'twitter' => 32, 'facebook' => 1337, ... ]
 ```
 
 ## Contributing
