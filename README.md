@@ -1,6 +1,5 @@
 # Belt.`Soshare`
 
-[![Latest Version](http://img.shields.io/packagist/v/belt/soshare.svg?style=flat-square)](https://github.com/beltphp/soshare/releases)
 [![Software License](http://img.shields.io/packagist/l/belt/soshare.svg?style=flat-square)](LICENSE)
 [![Build Status](https://img.shields.io/travis/beltphp/soshare/master.svg?style=flat-square)](https://travis-ci.org/beltphp/releases)
 [![Coverage Status](http://img.shields.io/scrutinizer/coverage/g/beltphp/soshare.svg?style=flat-square)](https://scrutinizer-ci.com/g/beltphp/soshare/code-structure)
