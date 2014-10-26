@@ -57,6 +57,6 @@ class Reddit implements NetworkInterface
      */
     private function getUrl($url)
     {
-        return sprintf('http://cdn.api.twitter.com/1/urls/count.json?url=%s', $url);
+        return sprintf('http://www.reddit.com/api/info.json?url=%s', $url);
     }
 }
